@@ -1,6 +1,8 @@
 import * as React from "react";
 import Map from "../../map/Map/Map";
 
+import Requests from "../../requests/Requests";
+
 const cls = require("./App.css");
 
 class App extends React.Component<undefined, undefined> {
@@ -14,7 +16,7 @@ class App extends React.Component<undefined, undefined> {
     return (
       <div className={cls.app}>
         <div className={cls.requests}>
-          Requests
+          <Requests />
         </div>
         <div className={cls.map}>
           <Map ref={this.refMap} />
