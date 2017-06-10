@@ -36,5 +36,9 @@ curl \
 
 curl \
   -X GET \
-  "https://gfe.cit.api.here.com/2/search/proximity.json?app_id=i9701DoYFr1Q9HVTln0u&app_code=TZds_CkyQgkSLQFo-d-ldw&layer_ids=4711&key_attribute=NAME&proximity=52.514897,13.237881"
+  "https://gfe.cit.api.here.com/2/search/proximity.json?app_id=i9701DoYFr1Q9HVTln0u&app_code=TZds_CkyQgkSLQFo-d-ldw&layer_ids=4711&key_attribute=NAME&proximity=52.51468080308774,13.237832765361048"
+
+curl \
+  -X GET \
+  "https://gfe.cit.api.here.com/2/search/proximity.json?app_id=i9701DoYFr1Q9HVTln0u&app_code=TZds_CkyQgkSLQFo-d-ldw&layer_ids=4711&key_attribute=NAME&proximity=52.514678275966055,13.237929438491562"
 ```

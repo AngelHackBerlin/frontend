@@ -1,6 +1,8 @@
 import * as React from "react";
+import axios from "axios";
 
 import platform from "../platform";
+import geometryToPoints from "./geometryToPoints";
 
 const cls = require("./Map.css");
 
@@ -17,6 +19,14 @@ class Map extends React.Component<undefined, undefined> {
 
   componentDidMount() {
     this.initMap();
+
+    setTimeout(() => {
+      // this.locate({ lng: 13.237903988942804, lat: 52.51466842619339 }); // Sector A
+      // this.locate({ lng: 13.237813023189318, lat: 52.514784322743076 }); // Sector B
+      // this.locate({ lng: 13.237938657602626, lat: 52.514849786798294 }); // Sector C
+      // this.locate({ lng: 13.238015897130765, lat: 52.514930476880785 }); // Sector D
+      this.locate({ lng: 13.241572404820204, lat: 52.514765729398796 }); // Sector Z
+    }, 3000);
   }
 
   initMap() {
@@ -33,11 +43,45 @@ class Map extends React.Component<undefined, undefined> {
 
     const mapEvents = new H.mapevents.MapEvents(this.map);
 
+    this.map.addEventListener("tap", this.handleTap);
+
     const behavior = new H.mapevents.Behavior(mapEvents);
   }
 
+  handleTap = (e: any) => {
+    const { viewportX, viewportY } = e.currentPointer;
+    const cords = this.map.screenToGeo(viewportX, viewportY);
+    console.log(`${cords.lng} ${cords.lat}`);
+  };
+
   center(cords: GeoCoordinate) {
     this.map.setCenter({ lat: cords.lat, lng: cords.lng });
+  }
+
+  locate(cords: GeoCoordinate) {
+    const { lat, lng } = cords;
+    axios.get(`https://gfe.cit.api.here.com/2/search/proximity.json?app_id=${process.env.HERE_APP_ID}&app_code=${process.env.HERE_APP_CODE}&layer_ids=4711&key_attribute=NAME&proximity=${lat},${lng}`)
+      .then((response) => {
+        const data = response.data.geometries[0];
+
+        if (data) {
+          var strip = new H.geo.Strip();
+
+          geometryToPoints(data).forEach((point: GeoCoordinate) => {
+            strip.pushPoint(point);
+          });
+
+          this.map.addObject(new H.map.Polygon(
+            strip, { style: { lineWidth: 0 }}
+          ));
+        } else {
+          alert("No results");
+        }
+
+      })
+      .catch(() => {
+        alert("Requesting geometries failed");
+      });
   }
 
   refMap = (mapElement: HTMLElement) => {
