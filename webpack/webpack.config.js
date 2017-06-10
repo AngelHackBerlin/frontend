@@ -16,7 +16,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
   },
 
   plugins: [
@@ -27,6 +27,7 @@ module.exports = {
     rules: [
       { test: /\.jsx?$/, exclude: /node_modules/, use: "babel-loader" },
       { test: /\.tsx?$/, exclude: /node_modules/, loader: "babel-loader!ts-loader" },
+      { test: /\.json$/, use: 'json-loader' },
     ],
   },
 };

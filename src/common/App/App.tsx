@@ -3,6 +3,7 @@ import Map from "../../map/Map/Map";
 import Requests from "../../requests/Requests/Requests";
 import { RequestPayload } from "../../requests/RequestsTypes";
 
+const data = require("../../data/requests");
 const cls = require("./App.css");
 
 type State = {
@@ -13,7 +14,7 @@ class App extends React.Component<undefined, State> {
   map: Map;
 
   state: State = {
-    requests: [],
+    requests: data.requests,
   };
 
   refMap = (map: Map) => {
