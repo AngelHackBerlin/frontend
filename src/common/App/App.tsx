@@ -17,11 +17,12 @@ class App extends React.Component<undefined, State> {
   map: Map;
 
   state: State = {
-    requests: data.requests,
+    requests: [],
   };
 
   componentDidMount() {
     this._initFirebase();
+    this._fetchAndListenToRequests();
   }
 
   _initFirebase() {
@@ -35,6 +36,18 @@ class App extends React.Component<undefined, State> {
     };
 
     firebase.initializeApp(config);
+  }
+
+  _fetchAndListenToRequests() {
+    let requestsRef = firebase.database().ref('Request');
+    requestsRef.on('value', this._onRequestsReceived);
+  }
+
+  _onRequestsReceived = (snapshot: any) => {
+    let requests = snapshot.val();
+    if (requests) {
+      this.setState({ requests: requests });
+    }
   }
 
   refMap = (map: Map) => {
