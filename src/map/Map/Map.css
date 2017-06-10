@@ -1,8 +1,3 @@
-:local(.title) {
-  font-size: 20px;
-  padding: 10px 15px;
-  color: #fff;
-  letter-spacing: 1px;
-  background-color: #D41919;
-  font-family: 'Roboto', sans-serif;
+:local(.mapContainer) {
+  height: 100%;
 }

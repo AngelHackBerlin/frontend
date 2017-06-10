@@ -22,3 +22,19 @@ npm run build               # production build (remember to build with NODE_ENV=
 ```
 heroku git:remote -a angelhack-berlin
 ```
+
+# Here
+
+```
+curl \
+--request \
+-i \
+-X POST \
+-H "Content-Type: multipart/form-data" \
+-F "zipfile=@sectors.wkt.zip" \
+  "https://gfe.cit.api.here.com/2/layers/upload.json?layer_id=4711&app_id=i9701DoYFr1Q9HVTln0u&app_code=TZds_CkyQgkSLQFo-d-ldw"
+
+curl \
+  -X GET \
+  "https://gfe.cit.api.here.com/2/search/proximity.json?app_id=i9701DoYFr1Q9HVTln0u&app_code=TZds_CkyQgkSLQFo-d-ldw&layer_ids=4711&key_attribute=NAME&proximity=52.514897,13.237881"
+```

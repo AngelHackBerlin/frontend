@@ -20,7 +20,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin(["NODE_ENV"]),
+    new webpack.EnvironmentPlugin(["NODE_ENV", "HERE_APP_ID", "HERE_APP_CODE"]),
   ],
 
   module: {
