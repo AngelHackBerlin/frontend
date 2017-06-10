@@ -13,15 +13,13 @@ class Request extends React.Component<Props, undefined> {
     } = this.props;
 
     return (
-      <div>
+      <article className={cls.request}>
         <div className={cls.header}>
-          <div className={cls.type}>{ request.type }</div>
-          <div className={cls.date}>{ request.date }</div>
+          <h1 className={cls.type}>{request.type}</h1>
+          <div className={cls.date}>{request.date}</div>
         </div>
-        <div className={cls.comment}>
-          <p>{ request.comment }</p>
-        </div>
-      </div>
+        <p className={cls.comment}>{request.comment}</p>
+      </article>
     );
   }
 }

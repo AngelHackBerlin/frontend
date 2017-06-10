@@ -1,18 +1,16 @@
 :local(.title) {
-  font-size: 20px;
-  padding: 10px 15px;
   color: #fff;
   letter-spacing: 1px;
   background-color: #D41919;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 34px;
+  font-weight: 200;
+  padding: 60px 0;
+  background-image: url("./assets/ball-0.1.png");
+  background-repeat: no-repeat;
 }
 
-:local(.request) {
-  margin: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #D41919;
-
-  &:last-child {
-    border: 0;
-  }
+:local(.requests) {
+  padding: 20px;
 }

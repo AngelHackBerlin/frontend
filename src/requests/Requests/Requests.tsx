@@ -14,24 +14,8 @@ class Requests extends React.Component<Props, undefined> {
       <div>
         <div className={cls.title}>Requests</div>
         <div className={cls.requests}>
-          {this._renderRequests()}
+          {this.props.requests.map(request => <Request key={request.id} request={request} />)}
         </div>
-      </div>
-    );
-  }
-
-  _renderRequests = () => {
-    const {
-      requests,
-    } = this.props;
-
-    return requests.map(this._renderRequest);
-  }
-
-  _renderRequest(request: RequestPayload) {
-    return (
-      <div key={request.id} className={cls.request}>
-        <Request request={request} />
       </div>
     );
   }

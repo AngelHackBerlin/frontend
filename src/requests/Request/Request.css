@@ -1,16 +1,31 @@
+:local(.request) {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 2px 0 rgba(0,0,0,.12);
+  padding: 15px;
+  margin: 0 0 20px;
+}
+
 :local(.header) {
   display: flex;
 }
 
+:local(.type),
+:local(.date) {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 :local(.type) {
-  font-weight: bold;
-  flex-grow: 1;
+  font-size: 16px;
+  margin: 0;
 }
 
 :local(.date) {
-  font-style: italic;
+  font-size: 14px;
+  color: #a7a7a7;
+  margin: 0 0 0 10px;
 }
 
 :local(.comment) {
-  font-size: 18px;
+  font-size: 14px;
+  margin: 15px 0 0;
 }
