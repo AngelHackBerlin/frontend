@@ -1,3 +1,11 @@
-:local(.title) {
-  color: cornflowerblue;
+:local(.app) {
+  display: flex;
+}
+
+:local(.requests) {
+  flex: 2;
+}
+
+:local(.map) {
+  flex: 3;
 }
