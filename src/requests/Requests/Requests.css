@@ -1,0 +1,11 @@
+:local(.title) {
+  font-weight: bold;
+  font-size: 24px;
+  padding: 20px 0;
+}
+
+:local(.request) {
+  margin: 10px;
+  padding: 10px;
+  background-color: #efefef;
+}

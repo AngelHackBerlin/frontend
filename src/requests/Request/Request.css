@@ -1,0 +1,16 @@
+:local(.header) {
+  display: flex;
+}
+
+:local(.type) {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+:local(.date) {
+  font-style: italic;
+}
+
+:local(.comment) {
+  font-size: 18px;
+}
