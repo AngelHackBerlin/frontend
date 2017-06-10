@@ -10,13 +10,14 @@
 
 :local(.type),
 :local(.date) {
-  display: inline-block;
   vertical-align: middle;
 }
 
 :local(.type) {
   font-size: 16px;
   margin: 0;
+  text-transform: uppercase;
+  flex-grow: 1;
 }
 
 :local(.date) {
