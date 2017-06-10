@@ -20,7 +20,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin(["NODE_ENV", "HERE_APP_ID", "HERE_APP_CODE"]),
+    new webpack.EnvironmentPlugin(["NODE_ENV", "HERE_APP_ID", "HERE_APP_CODE", "FIREBASE_API_KEY"]),
   ],
 
   module: {

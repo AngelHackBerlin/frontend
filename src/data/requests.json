@@ -1,16 +1,19 @@
 {
   "requests": [
     {
+      "id": "1",
       "type": "health",
       "date": "10.06.2017",
       "comment": "My arm is broken!"
     },
     {
+      "id": "2",
       "type": "security",
       "date": "11.06.2017",
       "comment": "Two guys next to me are throwing flares on the pitch."
     },
     {
+      "id": "3",
       "type": "tech",
       "date": "12.06.2017",
       "comment": "I can't sit down cause my sit is destroyed!"

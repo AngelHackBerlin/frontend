@@ -30,7 +30,7 @@ class Requests extends React.Component<Props, undefined> {
 
   _renderRequest(request: RequestPayload) {
     return (
-      <div className={cls.request}>
+      <div key={request.id} className={cls.request}>
         <Request request={request} />
       </div>
     );
