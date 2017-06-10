@@ -4,6 +4,7 @@ html,
 body,
 #root {
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 :local(.app) {
@@ -17,4 +18,5 @@ body,
 
 :local(.map) {
   flex: 3;
+  margin-left: 5px;
 }
