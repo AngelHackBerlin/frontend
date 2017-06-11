@@ -5,6 +5,7 @@ const cls = require("./Request.css");
 const iconHealth = require("./assets/icon-health.png");
 const iconSecurity = require("./assets/icon-security.png");
 const iconTech = require("./assets/icon-tech.png");
+const moment = require("moment");
 
 type Props = {
   request: RequestPayload,
@@ -32,7 +33,7 @@ class Request extends React.Component<Props, undefined> {
         <div className={cls.content}>
           <div className={cls.header}>
             <h1 className={cls.type}>{request.type}</h1>
-            <div className={cls.date}>{request.date}</div>
+            <div className={cls.date}>{moment(request.date).format("HH:mm DD.MM.YYYY")}</div>
           </div>
           <p className={cls.comment}>{request.comment}</p>
         </div>

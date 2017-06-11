@@ -6,6 +6,7 @@ import { RequestPayload } from "../../requests/RequestsTypes";
 import * as firebase from "firebase";
 import "firebase/database";
 
+const moment = require("moment");
 const data = require("../../data/requests");
 const cls = require("./App.css");
 
@@ -58,10 +59,18 @@ class App extends React.Component<undefined, State> {
         this.setState({ requests: requests.reverse() });
       } else {
         let requestsArray: any[] = [];
+
         Object.keys(requests).map((key) => {
-          requestsArray.push(requests[key]);
+          let request = requests[key];
+          request.date = moment(request.date, "HH:mm DD.MM.YYYY");
+          requestsArray.push(request);
         });
-        this.setState({ requests: requestsArray });
+
+        let sortedRequests = requestsArray.sort((a,b) => {
+          return moment(a.date).isBefore(b.date);
+        });
+
+        this.setState({ requests: sortedRequests });
       }
     }
   }
