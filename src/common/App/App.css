@@ -14,6 +14,8 @@ body,
 
 :local(.requests) {
   flex: 2;
+  display: flex;
+  flex-direction: column;
 }
 
 :local(.map) {
