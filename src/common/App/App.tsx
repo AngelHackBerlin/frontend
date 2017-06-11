@@ -13,6 +13,14 @@ type State = {
   requests: RequestPayload[],
 };
 
+const CORDS = [
+  { lng: 13.237903988942804, lat: 52.51466842619339 },
+  { lng: 13.237813023189318, lat: 52.514784322743076 },
+  { lng: 13.237938657602626, lat: 52.514849786798294 },
+  { lng: 13.238015897130765, lat: 52.514930476880785 },
+  { lng: 13.241572404820204, lat: 52.514765729398796 }
+];
+
 class App extends React.Component<undefined, State> {
   map: Map;
 
@@ -46,9 +54,15 @@ class App extends React.Component<undefined, State> {
   _onRequestsReceived = (snapshot: any) => {
     let requests = snapshot.val();
     if (requests) {
-      this.setState({ requests: requests });
+      this.setState({ requests: requests.reverse() });
     }
   }
+
+  handleClick = (request: RequestPayload) => {
+    // this.map.locate(request.cords); // TODO: fix
+
+    this.map.locate(CORDS[Math.round(Math.random() * CORDS.length)]);
+  };
 
   refMap = (map: Map) => {
     this.map = map;
@@ -62,7 +76,7 @@ class App extends React.Component<undefined, State> {
     return (
       <div className={cls.app}>
         <div className={cls.requests}>
-          <Requests requests={requests}/>
+          <Requests requests={requests} onClick={this.handleClick} />
         </div>
         <div className={cls.map}>
           <Map ref={this.refMap} />
