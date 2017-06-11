@@ -1,6 +1,10 @@
 import * as React from "react";
-import { RequestPayload } from "../RequestsTypes";
+import { RequestPayload, RequestType } from "../RequestsTypes";
+
 const cls = require("./Request.css");
+const iconHealth = require("./assets/icon-health.png");
+const iconSecurity = require("./assets/icon-security.png");
+const iconTech = require("./assets/icon-tech.png");
 
 type Props = {
   request: RequestPayload,
@@ -19,13 +23,31 @@ class Request extends React.Component<Props, undefined> {
 
     return (
       <article className={cls.request} onClick={this.handleClick} role="button">
-        <div className={cls.header}>
-          <h1 className={cls.type}>{request.type}</h1>
-          <div className={cls.date}>{request.date}</div>
+        <img
+          src={ this._getIconByRequestType(request.type) }
+          alt=""
+          className={cls.icon}
+        />
+        <div className={cls.content}>
+          <div className={cls.header}>
+            <h1 className={cls.type}>{request.type}</h1>
+            <div className={cls.date}>{request.date}</div>
+          </div>
+          <p className={cls.comment}>{request.comment}</p>
         </div>
-        <p className={cls.comment}>{request.comment}</p>
       </article>
     );
+  }
+
+  _getIconByRequestType = (type: RequestType) => {
+    switch(type) {
+      case "health":
+        return iconHealth;
+      case "security":
+        return iconSecurity;
+      case "tech":
+        return iconTech;
+    }
   }
 }
 

@@ -3,6 +3,11 @@
   padding: 15px;
   margin: 0 0 20px;
   cursor: pointer;
+  display: flex;
+}
+
+:local(.content) {
+  flex: 1;
 }
 
 :local(.header) {
@@ -30,4 +35,11 @@
 :local(.comment) {
   font-size: 14px;
   margin: 15px 0 0;
+}
+
+:local(.icon) {
+  height: 30px;
+  align-self: center;
+  margin-left: 5px;
+  margin-right: 20px;
 }
