@@ -23,11 +23,12 @@ class Request extends React.Component<Props, undefined> {
 
     return (
       <article className={cls.request} onClick={this.handleClick} role="button">
-        <img
-          src={ this._getIconByRequestType(request.type) }
-          alt=""
-          className={cls.icon}
-        />
+        <div className={cls.icon}>
+          <img
+            src={ this._getIconByRequestType(request.type) }
+            alt=""
+          />
+        </div>
         <div className={cls.content}>
           <div className={cls.header}>
             <h1 className={cls.type}>{request.type}</h1>
