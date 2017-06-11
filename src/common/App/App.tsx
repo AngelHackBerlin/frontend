@@ -54,7 +54,15 @@ class App extends React.Component<undefined, State> {
   _onRequestsReceived = (snapshot: any) => {
     let requests = snapshot.val();
     if (requests) {
-      this.setState({ requests: requests.reverse() });
+      if (Array.isArray(requests)) {
+        this.setState({ requests: requests.reverse() });
+      } else {
+        let requestsArray: any[] = [];
+        Object.keys(requests).map((key) => {
+          requestsArray.push(requests[key]);
+        });
+        this.setState({ requests: requestsArray });
+      }
     }
   }
 
