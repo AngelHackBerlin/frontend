@@ -41,7 +41,7 @@ class Request extends React.Component<Props, undefined> {
   }
 
   _getIconByRequestType = (type: RequestType) => {
-    switch(type) {
+    switch(type.toLowerCase()) {
       case "health":
         return iconHealth;
       case "security":
