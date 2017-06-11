@@ -4,6 +4,11 @@
   margin: 0 0 20px;
   cursor: pointer;
   display: flex;
+  transition: .3s;
+}
+
+:local(.request):hover {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.24), 0 0 5px 0 rgba(0,0,0,.2);
 }
 
 :local(.content) {
